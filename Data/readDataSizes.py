@@ -21,10 +21,10 @@ def readDataSizes(datasetName: str, datasetFiles: dict):
     print("Reading the 'dataSize' file to prepare further processing...")
     categoriesCount = 0
     # Loading required data based on the dataset name
-    if (datasetName == 'Gowalla') or (datasetName == 'Foursquare'):
+    if (datasetName == 'Gowalla') or (datasetName == 'Foursquare') or (datasetName == 'Gowalla_Sample') or (datasetName == 'Foursquare_NYC') or (datasetName == 'Brightkite_Sample') or (datasetName == 'Yelp_Sample') or (datasetName == 'Foursquare_TKY') :
         usersCount, poisCount = open(datasetFiles['dataSize'], 'r').readlines()[
             0].strip('\n').split()
-    elif (datasetName == 'Yelp'):
+    elif (datasetName == 'Yelp') or (datasetName == 'Yelp_mini'):
         usersCount, poisCount, categoriesCount = open(
             datasetFiles['dataSize'], 'r').readlines()[0].strip('\n').split()
     # Converting data into integer

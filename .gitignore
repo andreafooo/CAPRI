@@ -140,3 +140,9 @@ Models/**/savedModels/*
 
 # Avoid IDE-specificity
 **/*/.idea/
+
+capri-env/
+
+Data/
+
+.DS_Store
