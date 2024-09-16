@@ -21,25 +21,45 @@ def readDataSizes(datasetName: str, datasetFiles: dict):
     print("Reading the 'dataSize' file to prepare further processing...")
     categoriesCount = 0
     # Loading required data based on the dataset name
-    if (datasetName == 'Gowalla') or (datasetName == 'Foursquare') or (datasetName == 'Gowalla_Sample') or (datasetName == 'Foursquare_NYC') or (datasetName == 'Brightkite_Sample') or (datasetName == 'Yelp_Sample') or (datasetName == 'Foursquare_TKY') :
-        usersCount, poisCount = open(datasetFiles['dataSize'], 'r').readlines()[
-            0].strip('\n').split()
-    elif (datasetName == 'Yelp') or (datasetName == 'Yelp_mini'):
-        usersCount, poisCount, categoriesCount = open(
-            datasetFiles['dataSize'], 'r').readlines()[0].strip('\n').split()
+    if (
+        (datasetName == "Gowalla")
+        or (datasetName == "Foursquare")
+        or (datasetName == "Gowalla_Sample")
+        or (datasetName == "Foursquare_NYC")
+        or (datasetName == "Brightkite_Sample")
+        or (datasetName == "Yelp_Sample")
+        or (datasetName == "Foursquare_TKY")
+        or (datasetName == "Snowcard_Sample")
+    ):
+        usersCount, poisCount = (
+            open(datasetFiles["dataSize"], "r").readlines()[0].strip("\n").split()
+        )
+    elif (datasetName == "Yelp") or (datasetName == "Yelp_mini"):
+        usersCount, poisCount, categoriesCount = (
+            open(datasetFiles["dataSize"], "r").readlines()[0].strip("\n").split()
+        )
     # Converting data into integer
-    usersCount, poisCount, categoriesCount = int(
-        usersCount), int(poisCount), int(categoriesCount)
+    usersCount, poisCount, categoriesCount = (
+        int(usersCount),
+        int(poisCount),
+        int(categoriesCount),
+    )
     # Creating lists for the data
-    usersList, poisList, categoriesList = list(
-        range(usersCount)), list(range(poisCount)), list(range(categoriesCount))
+    usersList, poisList, categoriesList = (
+        list(range(usersCount)),
+        list(range(poisCount)),
+        list(range(categoriesCount)),
+    )
     # IMPORTANT: Shuffle the users list only if not limit is set
-    if (limitUsers == -1):
+    if limitUsers == -1:
         np.random.shuffle(usersList)
     # Providing feedback to the user
-    logger(f'{datasetName} dataset contains {usersCount} users, {poisCount} locations, and {categoriesCount} categories!')
+    logger(
+        f"{datasetName} dataset contains {usersCount} users, {poisCount} locations, and {categoriesCount} categories!"
+    )
     # Returning the data
-    return {'users': {'count': usersCount, 'list': usersList},
-            'pois': {'count': poisCount, 'list': poisList},
-            'categories': {'count': categoriesCount, 'list': categoriesList}
-            }
+    return {
+        "users": {"count": usersCount, "list": usersList},
+        "pois": {"count": poisCount, "list": poisList},
+        "categories": {"count": categoriesCount, "list": categoriesList},
+    }

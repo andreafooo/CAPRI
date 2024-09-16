@@ -1,8 +1,8 @@
 import os
 
 # Paths
-dataDirectory = os.path.abspath('./Data/')
-outputsDir = os.path.abspath('./Outputs/')
+dataDirectory = os.path.abspath("./Data/")
+outputsDir = os.path.abspath("./Outputs/")
 
 # Framework Parameter
 isInteractive = True  # Should be false when the Terminal is not available
@@ -14,10 +14,12 @@ listLimit = 50  # Limit the length of recommendation list (default: 10)
 activeUsersPercentage = [5, 20]  # Calculate [n] percents of users as active
 
 # Default Parameters (non-interactive)
-defaultModel = "GeoSoCa" # Can be "GeoSoCa", "LORE", or "USG"
-defaultDataset = "Gowalla" # Can be "Gowalla", "Yelp", or "Foursquare"
-defaultFusion = "Product" # Can be "Product" or "Sum"
-defaultEvaluation = ["Precision"] # Can be a set of "Precision", "Recall", "mAP", or "NDCG"
+defaultModel = "GeoSoCa"  # Can be "GeoSoCa", "LORE", or "USG"
+defaultDataset = "Gowalla"  # Can be "Gowalla", "Yelp", or "Foursquare"
+defaultFusion = "Product"  # Can be "Product" or "Sum"
+defaultEvaluation = [
+    "Precision"
+]  # Can be a set of "Precision", "Recall", "mAP", or "NDCG"
 
 # Key: Model name, Value: Covered Contexts
 models = {
@@ -29,13 +31,13 @@ models = {
 # Key: Dataset name, Value: Covered Contexts
 datasets = {
     "Gowalla": ["Geographical", "Social", "Temporal", "Interaction"],
-    "Yelp":  ["Geographical", "Social", "Temporal", "Categorical", "Interaction"],
-    "Foursquare":  ["Geographical", "Social", "Temporal", "Interaction"],
-
+    "Yelp": ["Geographical", "Social", "Temporal", "Categorical", "Interaction"],
+    "Foursquare": ["Geographical", "Social", "Temporal", "Interaction"],
     "Gowalla_Sample": ["Geographical", "Social", "Temporal", "Interaction"],
     "Brightkite_Sample": ["Geographical", "Social", "Temporal", "Interaction"],
-    "Yelp_Sample":  ["Geographical", "Temporal", "Interaction"],
-    "Foursquare_TKY":  ["Geographical", "Temporal", "Interaction"]
+    "Yelp_Sample": ["Geographical", "Temporal", "Interaction"],
+    "Foursquare_TKY": ["Geographical", "Temporal", "Interaction"],
+    "Snowcard_Sample": ["Geographical", "Temporal", "Interaction"],
 }
 
 # An array of selected operations
