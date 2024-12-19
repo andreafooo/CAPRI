@@ -137,9 +137,6 @@ def evaluator(modelName: str, datasetName: str, evalParams: dict, modelParams: d
     # Add caching policy (prevent a similar setting to be executed again)
     fileName = f"{modelName}_{datasetName}_{fusion}_{usersCount}user_top{topK}_limit{listLimit}"
     calculatedResults = open(f"{outputsDir}/Rec_{fileName}.txt", "w+")
-    scoresFile = open(
-        f"{outputsDir}/Scores_{fileName}.txt", "w+"
-    )  # New file for scores
     # Initializing evaluation dataframe
     evalDataFrame = pd.DataFrame(columns=["precision", "recall", "ndcg", "map"])
     # Iterating over the users
@@ -174,19 +171,6 @@ def evaluator(modelName: str, datasetName: str, evalParams: dict, modelParams: d
                 )
                 + "\n"
             )
-            # Writing the scores to file
-            scoresFile.write(
-                "\t".join(
-                    [
-                        str(counter),
-                        str(userId),
-                        ",".join(
-                            [f"{lid}:{overallScores[lid]:.4f}" for lid in predicted]
-                        ),  # Include scores
-                    ]
-                )
-                + "\n"
-            )
     # Saving the results to file
     evalDataFrame = evalDataFrame.append(
         {
@@ -199,8 +183,7 @@ def evaluator(modelName: str, datasetName: str, evalParams: dict, modelParams: d
     )
     # Saving evaluation results
     evalDataFrame.round(5).to_csv(f"{outputsDir}/Eval_{fileName}.csv", index=False)
-    # Closing the files
+    # Closing the file
     calculatedResults.close()
-    scoresFile.close()  # Close the scores file
     # Logging the results
     logger(f"Evaluation results saved to {outputsDir}")

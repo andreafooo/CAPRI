@@ -28,7 +28,7 @@ def readDataSizes(datasetName: str, datasetFiles: dict):
         or (datasetName == "Foursquare_NYC")
         or (datasetName == "Brightkite_Sample")
         or (datasetName == "Yelp_Sample")
-        or (datasetName == "Foursquare_TKY")
+        or (datasetName == "Foursquaretky_Sample")
         or (datasetName == "Snowcard_Sample")
     ):
         usersCount, poisCount = (
