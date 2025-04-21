@@ -24,12 +24,11 @@ def readDataSizes(datasetName: str, datasetFiles: dict):
     if (
         (datasetName == "Gowalla")
         or (datasetName == "Foursquare")
-        or (datasetName == "Gowalla_Sample")
-        or (datasetName == "Foursquare_NYC")
-        or (datasetName == "Brightkite_Sample")
-        or (datasetName == "Yelp_Sample")
-        or (datasetName == "Foursquaretky_Sample")
-        or (datasetName == "Snowcard_Sample")
+        or (datasetName == "gowalla_sample")
+        or (datasetName == "brightkite_sample")
+        or (datasetName == "yelp_sample")
+        or (datasetName == "foursquaretky_sample")
+        or (datasetName == "snowcard_sample")
     ):
         usersCount, poisCount = (
             open(datasetFiles["dataSize"], "r").readlines()[0].strip("\n").split()

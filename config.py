@@ -33,11 +33,11 @@ datasets = {
     "Gowalla": ["Geographical", "Social", "Temporal", "Interaction"],
     "Yelp": ["Geographical", "Social", "Temporal", "Categorical", "Interaction"],
     "Foursquare": ["Geographical", "Social", "Temporal", "Interaction"],
-    "Gowalla_Sample": ["Geographical", "Temporal", "Interaction"],
-    "Brightkite_Sample": ["Geographical", "Temporal", "Interaction"],
-    "Yelp_Sample": ["Geographical", "Temporal", "Interaction"],
-    "Foursquaretky_Sample": ["Geographical", "Temporal", "Interaction"],
-    "Snowcard_Sample": ["Geographical", "Temporal", "Interaction"],
+    "gowalla_sample": ["Geographical", "Temporal", "Interaction"],
+    "brightkite_sample": ["Geographical", "Temporal", "Interaction"],
+    "yelp_sample": ["Geographical", "Temporal", "Interaction"],
+    "foursquaretky_sample": ["Geographical", "Temporal", "Interaction"],
+    "snowcard_sample": ["Geographical", "Temporal", "Interaction"],
 }
 
 # An array of selected operations
@@ -50,4 +50,4 @@ evaluationMetrics = ["Precision", "Recall", "mAP", "NDCG"]
 # Models Dictionaries
 GeoSoCaDict = {"alpha": 0.5}
 LoreDict = {"alpha": 0.05, "deltaT": 3600 * 24}
-USGDict = {"alpha": 0.1, "beta": 0.1, "eta": 0.05}
+USGDict = {"alpha": 0, "beta": 0.2, "eta": 0.05}
